@@ -82,22 +82,7 @@ static PyObject* tiger_digest(tiger_TigerObject* self, PyObject* args) {
 }
 
 static PyObject* tiger_hexdigest(tiger_TigerObject* self, PyObject* args) {
-    unsigned char result[24];
-
-    char* message = self->message;
-    unsigned long long int msize = self->msize;
-
-    tiger((word64*)message, msize, &result);
-
-    return PyString_FromFormat(
-        "%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x"
-        "%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x%.2x",
-        result[0], result[1], result[2], result[3],
-        result[4], result[5], result[6], result[7],
-        result[8], result[9], result[10], result[11],
-        result[12], result[13], result[14], result[15],
-        result[16], result[17], result[18], result[19],
-        result[20], result[21], result[22], result[23]);
+    return PyString_AsEncodedObject(tiger_digest(self, args), "hex", NULL);
 }
 
 static PyMethodDef TigerMethods[] = {
