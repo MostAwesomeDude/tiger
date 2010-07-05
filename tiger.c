@@ -123,7 +123,6 @@ extern word64 table[4*256];
   register word64 a, b, c, tmpa; \
   word64 aa, bb, cc; \
   register word64 x0, x1, x2, x3, x4, x5, x6, x7; \
-  register word32 i; \
   int pass_no; \
 \
   a = state[0]; \
@@ -141,7 +140,7 @@ extern word64 table[4*256];
 }
 
 /* The compress function is a function. Requires smaller cache?    */
-tiger_compress(word64 *str, word64 state[3])
+void tiger_compress(word64 *str, word64 state[3])
 {
   tiger_compress_macro(((word64*)str), ((word64*)state));
 }
