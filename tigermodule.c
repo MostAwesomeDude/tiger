@@ -72,7 +72,7 @@ static PyObject* tiger_update(tiger_TigerObject* self, PyObject* args) {
 
 static PyObject* tiger_digest(tiger_TigerObject* self, PyObject* args) {
     word64 result[3];
-    
+
     char* message = self->message;
     unsigned long long int msize = self->msize;
 
@@ -84,7 +84,7 @@ static PyObject* tiger_digest(tiger_TigerObject* self, PyObject* args) {
 static PyObject* tiger_hexdigest(tiger_TigerObject* self, PyObject* args) {
     unsigned char result[24];
     char hex[48];
-    
+
     char* message = self->message;
     unsigned long long int msize = self->msize;
 
