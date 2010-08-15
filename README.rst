@@ -17,8 +17,10 @@ Requirements
 
 Changelog
 =========
-
+ * v0.3
+    * PyPI compatibility; Tiger is now available on PyPI.
+ * v0.2
+    * Unbreak the entire module, particularly hexdigest().
+    * Add tests.
  * v0.1
     * Initial release.
-
-
